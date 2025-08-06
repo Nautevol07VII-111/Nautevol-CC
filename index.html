@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nautevol - Artist & Engineer</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Terminal header bar -->
+    <header class="terminal-header">
+        <div class="terminal-controls">
+            <span class="control close"></span>
+            <span class="control minimize"></span>
+            <span class="control maximize"></span>
+        </div>
+        <div class="terminal-title">site@nautevol:~/portfolio$ ls -la</div>
+        <div class="terminal-status">
+            <span id="current-time"></span>
+            <span class="status-indicator online"></span>
+        </div>
+    </header>
+
+    
+    
+    <!-- Upper left: About Me file -->
+    <div class="desktop-icon" 
+         data-type="folder" 
+         data-target="about"
+         style="position: absolute; left: 2%; top: 8%; width: 120px; z-index: 10;">
+        <img src="./images/about_me_icon.png" alt="About Me" class="icon-image">
+        <span class="icon-label">About Me.txt</span>
+    </div>
+
+    <!-- Upper right: Info folder -->
+    <div class="desktop-icon" 
+         data-type="folder" 
+         data-target="info"
+         style="position: absolute; right: 2%; top: 12%; width: 100px; z-index: 11;">
+        <img src="./images/info_folder.png" alt="Info" class="icon-image">
+        <span class="icon-label">Info</span>
+    </div>
+
+    <!-- Left side, middle: Logo idea file -->
+    <div class="desktop-icon" 
+         data-type="image" 
+         data-target="gallery"
+         style="position: absolute; left: 15%; top: 18%; width: 80px; z-index: 12;">
+        <img src="./images/logo_idea.png" alt="Logo Idea" class="icon-image">
+        <span class="icon-label">logo_idea.png</span>
+    </div>
+
+    <!-- Right side, upper middle: Press folder -->
+    <div class="desktop-icon" 
+         data-type="folder" 
+         data-target="press"
+         style="position: absolute; right: 8%; top: 25%; width: 90px; z-index: 13;">
+        <img src="./images/press_folder.png" alt="Press" class="icon-image">
+        <span class="icon-label">press</span>
+    </div>
+
+    <!-- Center-left area:Radio - larger like in reference -->
+    <div class="desktop-icon" 
+         data-type="link" 
+         data-target=""
+         style="position: absolute; left: 25%; top: 35%; width: 200px; z-index: 14;">
+        <img src="./images/peter_cat_radio.png" alt="Peter Cat Radio" class="icon-image">
+        <span class="icon-label">RADIO</span>
+    </div>
+
+    <!-- Upper right area: Studio photo -->
+    <div class="desktop-icon" 
+         data-type="image" 
+         data-target="gallery"
+         style="position: absolute; right: 20%; top: 15%; width: 110px; z-index: 15;">
+        <img src="./images/studio_photo.jpg" alt="In the studio" class="icon-image">
+        <span class="icon-label">in tha stu.jpg</span>
+    </div>
+
+    <!-- Center area: Photo by Reveka -->
+    <div class="desktop-icon" 
+         data-type="image" 
+         data-target="gallery"
+         style="position: absolute; left: 45%; top: 20%; width: 95px; z-index: 16;">
+        <img src="./images/.jpg" alt="Photo by Reveka" class="icon-image">
+        <span class="icon-label">by nic(editbyMe).jpg</span>
+    </div>
+
+    <!-- Lower left: Dark photo -->
+    <div class="desktop-icon" 
+         data-type="image" 
+         data-target="gallery"
+         style="position: absolute; left: 8%; bottom: 25%; width: 85px; z-index: 17;">
+        <img src="./images/dark_photo.jpg" alt="Dark Photo" class="icon-image">
+        <span class="icon-label">by nic(editbyme) 2.jpg</span>
+    </div>
+
+    <!-- Right side contact -->
+    <div class="desktop-icon" 
+         data-type="folder" 
+         data-target="contact"
+         style="position: absolute; right: 25%; top: 45%; width: 75px; z-index: 18;">
+        <img src="./images/contact_icon.png" alt="Contact" class="icon-image">
+        <span class="icon-label">Contact</span>
+    </div>
+
+    <!-- Center-bottom: Listen to  -->
+    <div class="desktop-icon" 
+         data-type="audio" 
+         data-target="music"
+         style="position: absolute; left: 35%; bottom: 20%; width: 130px; z-index: 19;">
+        <img src="./images/_album.jpg" alt="Listen to Harpoon" class="icon-image">
+        <span class="icon-label">LISTEN 2 </span>
+    </div>
+
+    <!-- Lower left: Discography -->
+    <div class="desktop-icon" 
+         data-type="folder" 
+         data-target="discography"
+         style="position: absolute; left: 50%; bottom: 35%; width: 90px; z-index: 20;">
+        <img src="./images/discography_icon.png" alt="Discography" class="icon-image">
+        <span class="icon-label">current projects</span>
+    </div>
+
+    <!-- Right side: CD icon -->
+    <div class="desktop-icon" 
+         data-type="folder" 
+         data-target="projects"
+         style="position: absolute; right: 12%; bottom: 15%; width: 100px; z-index: 21;">
+        <img src="./images/cd_icon.png" alt="Music Projects" class="icon-image">
+        <span class="icon-label">old demos/beats</span>
+    </div>
+
+    <!-- Central question mark - positioned like in reference -->
+    <div class="center-question" 
+         style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 5;">
+        <div class="question-mark">?</div>
+        <div class="question-subtitle">Click to explore</div>
+    </div>
+
+    <!-- Modal for About content -->
+    <div id="about-modal" class="content-modal" style="display: none;">
+        <div class="modal-window">
+            <div class="modal-header">
+                <span class="modal-title">About_Me.txt - Text Editor</span>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="terminal-output">
+                    <div class="command-prompt">
+                        <span class="prompt">site@nautevol:~$ </span>
+                        <span class="command">cat about_me.txt</span>
+                    </div>
+                    <div class="output-text">
+                        <p>Tuan - Artist, Producer, Engineer</p>
+                        <p>Location: New York City</p>
+                        <p>Status: Available for collaboration</p>
+                        <p></p>
+                        <p>I'm an artist who enjoys making art for art's sake.</p>
+                        <p>I'd like to work in more collaborative spaces this year.</p>
+                        <p>I wanna use programming to liberate myself as an artist,</p>
+                        <p>and maybe hopefully even liberate other artists too.</p>
+                        <p>Love Tuan.</p>
+                        <p>Skills: Audio Production • Software Engineering • Digital Art</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
