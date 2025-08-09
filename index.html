@@ -22,7 +22,7 @@
             user-select: none;
         }
 
-        /* Desktop Icons */
+        
         .desktop-icon {
             position: absolute;
             display: flex;
@@ -42,7 +42,7 @@
         .icon-image {
             width: 100%;
             height: auto;
-            border-radius: 2px; /* Much less rounded, more square */
+            border-radius: 2px; 
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
             transition: transform 0.2s ease;
         }
@@ -63,7 +63,7 @@
             word-wrap: break-word;
         }
 
-        /* Central Question Mark - Much more metallic and 3D */
+        
         .center-question {
             position: absolute;
             left: 50%;
@@ -80,7 +80,7 @@
             transition: all 0.3s ease;
             user-select: none;
             
-            /* Much more pronounced metallic effect */
+            
             background: linear-gradient(145deg, 
                 #ffffff 0%,
                 #e8e8e8 15%, 
@@ -94,7 +94,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             
-            /* Enhanced 3D shadow layers */
+            
             filter: drop-shadow(2px 2px 0px #bbb) 
                    drop-shadow(4px 4px 0px #999) 
                    drop-shadow(6px 6px 0px #777) 
@@ -103,7 +103,7 @@
                    drop-shadow(12px 12px 15px rgba(0,0,0,0.4))
                    drop-shadow(0px 0px 20px rgba(0,0,0,0.2));
             
-            /* Additional metallic shine effect */
+            
             position: relative;
         }
 
@@ -153,7 +153,7 @@
             opacity: 0.8;
         }
 
-        /* Modal Styles */
+        
         .content-modal {
             position: fixed;
             top: 0;
@@ -246,7 +246,50 @@
             margin-bottom: 8px;
         }
 
-        /* Responsive adjustments */
+        
+        .image-modal-window {
+            background: #2c3e50;
+            border-radius: 8px;
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-modal-header {
+            background: #34495e;
+            color: #ecf0f1;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #2c3e50;
+            flex-shrink: 0;
+        }
+
+        .image-modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: #2c3e50;
+            flex: 1;
+            min-height: 0;
+        }
+
+        #modal-image {
+            max-width: 100%;
+            max-height: 70vh;
+            width: auto;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            object-fit: contain;
+        }
+
+        
         @media (max-width: 768px) {
             .desktop-icon {
                 width: 60px !important;
@@ -263,7 +306,7 @@
     </style>
 </head>
 <body>
-    <!-- Desktop Icons positioned to match reference -->
+    <!-- Desktop Icons  -->
     
     <!-- Upper left: About Me file -->
     <div class="desktop-icon" 
@@ -315,13 +358,13 @@
     <!-- Upper right area: Studio photo -->
     <div class="desktop-icon" 
          data-type="image" 
-         data-target="gallery"
+         data-target="studio-photo"
          style="right: 15%; top: 15%; width: 90px;">
         <div class="icon-image" style="width: 72px; height: 72px; background-image: url('inThaSTu.jpg'); background-size: cover; background-position: center; border-radius: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);"></div>
         <span class="icon-label">📸 in tha stu.jpg</span>
     </div>
 
-    <!-- Center area: Photo by Reveka -->
+    
     <div class="desktop-icon" 
          data-type="image" 
          data-target="gallery"
@@ -330,7 +373,7 @@
         <span class="icon-label">📷 by nic(editbyme).jpg</span>
     </div>
 
-    <!-- Lower left: Dark photo -->
+    
     <div class="desktop-icon" 
          data-type="image" 
          data-target="gallery"
@@ -383,7 +426,7 @@
         <div class="question-subtitle">Click to explore</div>
     </div>
 
-    <!-- Modal for About content -->
+    
     <div id="about-modal" class="content-modal" style="display: none;">
         <div class="modal-window">
             <div class="modal-header">
@@ -404,11 +447,24 @@
                         <p>I'm an artist who enjoys making art for art's sake.</p>
                         <p>I'd like to work in more collaborative spaces this year.</p>
                         <p>I wanna use programming to liberate myself as an artist,</p>
-                        <p>and maybe hopefully even liberate other artists too.</p>
+                        <p>I hope to liberate other artists too.</p>
                         <p>Love Tuan.</p>
                         <p>Skills: Audio Production • Software Engineering • Digital Art</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Image Gallery -->
+    <div id="image-modal" class="content-modal" style="display: none;">
+        <div class="image-modal-window">
+            <div class="image-modal-header">
+                <span class="modal-title" id="image-modal-title"></span>
+                <button class="modal-close" id="image-modal-close">&times;</button>
+            </div>
+            <div class="image-modal-content">
+                <img id="modal-image" src="" alt="" />
             </div>
         </div>
     </div>
@@ -423,6 +479,9 @@
                     document.getElementById('about-modal').style.display = 'flex';
                 } else if (target === 'radio') {
                     window.open('https://', '_blank');
+                } else if (target === 'studio-photo') {
+                    // Open image modal for studio photo
+                    openStudioPhotoModal();
                 } else {
                     console.log(`Opening ${target}...`);
                     // Add more functionality as needed
@@ -438,15 +497,42 @@
             });
         });
 
-        // Modal close functionality
+        
+        function openStudioPhotoModal() {
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            
+            modalImage.src = 'inThaSTu.jpg';
+            modalImage.alt = 'In The Studio';
+            modal.style.display = 'flex';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            modal.style.display = 'none';
+        }
+
+        
         document.querySelector('.modal-close').addEventListener('click', function() {
             document.getElementById('about-modal').style.display = 'none';
+        });
+
+        // Image modal close functionality
+        document.getElementById('image-modal-close').addEventListener('click', function() {
+            closeImageModal();
         });
 
         // Close modal when clicking outside
         document.getElementById('about-modal').addEventListener('click', function(e) {
             if (e.target === this) {
                 this.style.display = 'none';
+            }
+        });
+
+        // Close image modal when clicking outside
+        document.getElementById('image-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeImageModal();
             }
         });
 
@@ -467,6 +553,7 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 document.getElementById('about-modal').style.display = 'none';
+                closeImageModal();
             }
         });
     </script>
