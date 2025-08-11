@@ -24,6 +24,15 @@
             user-select: none;
         }
 
+        @media (max-width: 768px) {
+            body {
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+                height: auto;
+                min-height: 100vh;
+            }
+        }
+
         .desktop-icon {
             position: absolute;
             display: flex;
@@ -449,6 +458,9 @@
             padding: 30px;
             max-width: 600px;
             width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
         }
@@ -550,6 +562,9 @@
             padding: 30px;
             max-width: 500px;
             width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
         }
@@ -704,6 +719,9 @@
             padding: 30px;
             max-width: 500px;
             width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
             text-align: center;
@@ -886,7 +904,7 @@
             <div class="audio-player">
                 <div class="audio-title">Demo for NY Rapper (2024) - Manhattan Beach Records</div>
                 <audio controls controlsList="nodownload noremoteplayback">
-                    <source src="Nautevol - Breather -1.wav" type="audio/wav">
+                    <source src="Nautevol-Breather-1.wav" type="audio/wav">
                     Your browser does not support the audio element.
                 </audio>
             </div>
@@ -902,7 +920,7 @@
             <div class="audio-player">
                 <div class="audio-title">No Limit (Soldier) - Abstract Beat - 2023</div>
                 <audio controls controlsList="nodownload noremoteplayback">
-                    <source src="no limit (soldier) .wav" type="audio/wav">
+                    <source src="no limit(soldier) .wav" type="audio/wav">
                     Your browser does not support the audio element.
                 </audio>
             </div>
