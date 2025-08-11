@@ -55,6 +55,74 @@
             pointer-events: none;
         }
 
+        .desktop-icon[data-type="audio"]:hover::before {
+            content: "Click to listen";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            white-space: nowrap;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .desktop-icon[data-target="about"]:hover::before {
+            content: "Click here";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            white-space: nowrap;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .desktop-icon[data-target="contact"]:hover::before {
+            content: "Click to contact me";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            white-space: nowrap;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .desktop-icon[data-target="info"]:hover::before {
+            content: "Click for more info";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            white-space: nowrap;
+            z-index: 10;
+            pointer-events: none;
+        }
+
         .desktop-icon:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
@@ -458,6 +526,213 @@
         .audio-player audio::-webkit-media-controls-panel {
             background-color: #2c3e50;
         }
+
+        #contact-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('NAUTEVOLCC-1.jpg') center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 2000;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .contact-container {
+            background: rgba(44, 62, 80, 0.95);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #ecf0f1;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #34495e;
+            border-radius: 6px;
+            background: rgba(52, 73, 94, 0.5);
+            color: #ecf0f1;
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            background: rgba(52, 73, 94, 0.7);
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .contact-links {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: rgba(52, 73, 94, 0.3);
+            border-radius: 8px;
+        }
+
+        .contact-links h4 {
+            color: #ecf0f1;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .instagram-link {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s ease;
+        }
+
+        .instagram-link:hover {
+            color: #5dade2;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .coming-soon-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1500;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coming-soon-content {
+            background: rgba(44, 62, 80, 0.95);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .coming-soon-content h3 {
+            color: #ecf0f1;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .coming-soon-content p {
+            color: #bdc3c7;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .coming-soon-close {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+        }
+
+        #info-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('NAUTEVOLCC-1.jpg') center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 2000;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .info-container {
+            background: rgba(44, 62, 80, 0.95);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .info-description {
+            color: #bdc3c7;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.2s ease;
+            margin: 10px 0;
+        }
+
+        .portfolio-link:hover {
+            background: #2980b9;
+        }
     </style>
 </head>
 <body>
@@ -552,16 +827,6 @@
         <span class="icon-label">discography</span>
     </div>
 
-    <div class="desktop-icon" 
-         data-type="folder" 
-         data-target="projects"
-         style="right: 8%; bottom: 15%; width: 90px;">
-        <div class="icon-image" style="width: 72px; height: 72px; background: radial-gradient(circle at 30% 30%, #ffffff, #e8e8e8 30%, #d0d0d0 50%, #b8b8b8 70%, #a0a0a0 90%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333; box-shadow: 0 4px 12px rgba(0,0,0,0.2), inset 0 2px 4px rgba(255,255,255,0.6), inset 0 -2px 4px rgba(0,0,0,0.2); position: relative; border: 2px solid #c0c0c0;">
-            <div style="position: absolute; width: 16px; height: 16px; background: radial-gradient(circle, #333 0%, #000 70%); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: inset 0 1px 2px rgba(255,255,255,0.3);"></div>
-        </div>
-        <span class="icon-label">music I've worked on</span>
-    </div>
-
     <div class="center-question">
         <div class="question-mark">?</div>
         <div class="question-subtitle">Click to explore</div>
@@ -644,6 +909,71 @@
         </div>
     </div>
 
+    <div id="contact-page">
+        <div class="contact-container">
+            <div class="music-header">
+                <span class="music-title">Contact</span>
+                <button class="music-close" id="contact-close">&times;</button>
+            </div>
+            
+            <div class="contact-links">
+                <h4>Connect with me:</h4>
+                <a href="https://www.instagram.com/nautevol/" target="_blank" class="instagram-link">
+                    📸 @nautevol on Instagram
+                </a>
+            </div>
+
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Tell me about your project or just say hello!" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="coming-soon-modal" class="coming-soon-modal">
+        <div class="coming-soon-content">
+            <h3>Coming Soon</h3>
+            <p>This section is currently under development. Check back soon for updates!</p>
+            <button class="coming-soon-close" id="coming-soon-close">Got it</button>
+        </div>
+    </div>
+
+    <div id="info-page">
+        <div class="info-container">
+            <div class="music-header">
+                <span class="music-title">More Info</span>
+                <button class="music-close" id="info-close">&times;</button>
+            </div>
+            
+            <div class="info-description">
+                Here is a link to my programming portfolio site where you can explore my technical projects and development work.
+            </div>
+            
+            <a href="https://nautevol07vii-111.github.io/Portfolio-site/" target="_blank" class="portfolio-link">
+                Visit My Programming Portfolio
+            </a>
+        </div>
+    </div>
+
     <script>
         // Desktop icon interactions
         document.querySelectorAll('.desktop-icon').forEach(icon => {
@@ -652,8 +982,15 @@
                 
                 if (target === 'about') {
                     document.getElementById('about-modal').style.display = 'flex';
-                } else if (target === 'radio') {
-                    window.open('https://', '_blank');
+                } else if (target === 'radio' || target === 'press' || target === 'discography') {
+                    // Show coming soon modal
+                    showComingSoon();
+                } else if (target === 'info') {
+                    // Open info page
+                    openInfoPage();
+                } else if (target === 'contact') {
+                    // Open contact page
+                    openContactPage();
                 } else if (target === 'studio-photo') {
                     // Open image modal for studio photo
                     openStudioPhotoModal();
@@ -740,6 +1077,33 @@
             });
         }
 
+        // Contact page functions
+        function openContactPage() {
+            document.getElementById('contact-page').style.display = 'flex';
+        }
+
+        function closeContactPage() {
+            document.getElementById('contact-page').style.display = 'none';
+        }
+
+        // Info page functions
+        function openInfoPage() {
+            document.getElementById('info-page').style.display = 'flex';
+        }
+
+        function closeInfoPage() {
+            document.getElementById('info-page').style.display = 'none';
+        }
+
+        // Coming soon modal functions
+        function showComingSoon() {
+            document.getElementById('coming-soon-modal').style.display = 'flex';
+        }
+
+        function hideComingSoon() {
+            document.getElementById('coming-soon-modal').style.display = 'none';
+        }
+
         // Modal close functionality
         document.querySelector('.modal-close').addEventListener('click', function() {
             document.getElementById('about-modal').style.display = 'none';
@@ -753,6 +1117,21 @@
         // Music page close functionality
         document.getElementById('music-close').addEventListener('click', function() {
             closeMusicPage();
+        });
+
+        // Contact page close functionality
+        document.getElementById('contact-close').addEventListener('click', function() {
+            closeContactPage();
+        });
+
+        // Info page close functionality
+        document.getElementById('info-close').addEventListener('click', function() {
+            closeInfoPage();
+        });
+
+        // Coming soon modal close functionality
+        document.getElementById('coming-soon-close').addEventListener('click', function() {
+            hideComingSoon();
         });
 
         // Close modal when clicking outside
@@ -776,6 +1155,27 @@
             }
         });
 
+        // Close contact page when clicking outside container
+        document.getElementById('contact-page').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactPage();
+            }
+        });
+
+        // Close info page when clicking outside container
+        document.getElementById('info-page').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeInfoPage();
+            }
+        });
+
+        // Close coming soon modal when clicking outside
+        document.getElementById('coming-soon-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideComingSoon();
+            }
+        });
+
         // Question mark interaction
         document.querySelector('.question-mark').addEventListener('click', function() {
             // Animate all icons
@@ -795,6 +1195,9 @@
                 document.getElementById('about-modal').style.display = 'none';
                 closeImageModal();
                 closeMusicPage();
+                closeContactPage();
+                closeInfoPage();
+                hideComingSoon();
             }
         });
     </script>
