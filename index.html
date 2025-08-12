@@ -164,6 +164,179 @@
             word-wrap: break-word;
         }
 
+        /* 3D Radio Cube Styles */
+        .radio-3d {
+            width: 80px;
+            height: 50px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+            transform: rotateX(-25deg) rotateY(45deg) scale(0.9);
+            margin: 5px auto;
+        }
+
+        .radio-cube {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .radio-face {
+            position: absolute;
+            border: 1px solid rgba(0,0,0,0.2);
+        }
+
+        .radio-front {
+            width: 80px;
+            height: 50px;
+            background: linear-gradient(145deg, #34495e, #2c3e50);
+            transform: translateZ(15px);
+        }
+
+        .radio-back {
+            width: 80px;
+            height: 50px;
+            background: linear-gradient(145deg, #1a252f, #2c3e50);
+            transform: translateZ(-15px) rotateY(180deg);
+        }
+
+        .radio-top {
+            width: 80px;
+            height: 30px;
+            background: linear-gradient(145deg, #3d566e, #34495e);
+            transform: rotateX(90deg) translateZ(25px);
+        }
+
+        .radio-bottom {
+            width: 80px;
+            height: 30px;
+            background: linear-gradient(145deg, #1a252f, #2c3e50);
+            transform: rotateX(-90deg) translateZ(25px);
+        }
+
+        .radio-right {
+            width: 30px;
+            height: 50px;
+            background: linear-gradient(145deg, #2a3d4f, #1a252f);
+            transform: rotateY(90deg) translateZ(25px);
+        }
+
+        .radio-left {
+            width: 30px;
+            height: 50px;
+            background: linear-gradient(145deg, #2c3e50, #1a252f);
+            transform: rotateY(-90deg) translateZ(55px);
+        }
+
+        .radio-body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .radio-speaker {
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            width: 35px;
+            height: 35px;
+            background: radial-gradient(circle, #1a1a1a 30%, #333 70%);
+            border-radius: 50%;
+            box-shadow: 
+                inset 0 2px 4px rgba(0,0,0,0.5),
+                0 1px 2px rgba(255,255,255,0.1);
+        }
+
+        .speaker-holes {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        .speaker-hole {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #000;
+            border-radius: 50%;
+        }
+
+        .speaker-hole:nth-child(1) { top: 2px; left: 9px; }
+        .speaker-hole:nth-child(2) { top: 6px; left: 5px; }
+        .speaker-hole:nth-child(3) { top: 6px; left: 13px; }
+        .speaker-hole:nth-child(4) { top: 10px; left: 2px; }
+        .speaker-hole:nth-child(5) { top: 10px; left: 9px; }
+        .speaker-hole:nth-child(6) { top: 10px; left: 16px; }
+        .speaker-hole:nth-child(7) { top: 14px; left: 5px; }
+        .speaker-hole:nth-child(8) { top: 14px; left: 13px; }
+        .speaker-hole:nth-child(9) { top: 18px; left: 9px; }
+
+        .radio-antenna {
+            position: absolute;
+            right: 5px;
+            top: -8px;
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(to top, #666, #999);
+            border-radius: 1px;
+            transform-origin: bottom;
+            transform: rotate(-15deg);
+            box-shadow: 1px 0 2px rgba(0,0,0,0.3);
+        }
+
+        .radio-controls {
+            position: absolute;
+            right: 8px;
+            top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .radio-knob {
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(145deg, #e74c3c, #c0392b);
+            border-radius: 50%;
+            box-shadow: 
+                0 2px 4px rgba(0,0,0,0.3),
+                inset 0 1px 2px rgba(255,255,255,0.2);
+            position: relative;
+        }
+
+        .radio-knob::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 4px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 1px;
+        }
+
+        .radio-display {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            width: 25px;
+            height: 6px;
+            background: linear-gradient(to right, #27ae60, #2ecc71);
+            border-radius: 2px;
+            box-shadow: 
+                inset 0 1px 2px rgba(0,0,0,0.3),
+                0 0 4px rgba(46, 204, 113, 0.4);
+        }
+
+        .radio-3d:hover {
+            transform: rotateX(-20deg) rotateY(50deg) scale(0.95);
+        }
+
         .center-question {
             position: absolute;
             left: 50%;
@@ -791,8 +964,39 @@
          data-type="link" 
          data-target="radio"
          style="left: 18%; top: 43%; width: 120px;">
-        <div class="icon-image" style="width: 100px; height: 60px; background: linear-gradient(45deg, #e74c3c, #c0392b, #27ae60); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 16px; color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.2); position: relative;">
-            📻
+        <div class="icon-image" style="width: 100px; height: 60px; border-radius: 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); position: relative;">
+            <div class="radio-3d">
+                <div class="radio-cube">
+                    <div class="radio-face radio-front">
+                        <div class="radio-body">
+                            <div class="radio-speaker">
+                                <div class="speaker-holes">
+                                    <div class="speaker-hole"></div>
+                                    <div class="speaker-hole"></div>
+                                    <div class="speaker-hole"></div>
+                                    <div class="speaker-hole"></div>
+                                    <div class="speaker-hole"></div>
+                                    <div class="speaker-hole"></div>
+                                    <div class="speaker-hole"></div>
+                                    <div class="speaker-hole"></div>
+                                    <div class="speaker-hole"></div>
+                                </div>
+                            </div>
+                            <div class="radio-display"></div>
+                            <div class="radio-controls">
+                                <div class="radio-knob"></div>
+                                <div class="radio-knob"></div>
+                            </div>
+                            <div class="radio-antenna"></div>
+                        </div>
+                    </div>
+                    <div class="radio-face radio-back"></div>
+                    <div class="radio-face radio-top"></div>
+                    <div class="radio-face radio-bottom"></div>
+                    <div class="radio-face radio-left"></div>
+                    <div class="radio-face radio-right"></div>
+                </div>
+            </div>
         </div>
         <span class="icon-label">HOTEL TERRA RADIO</span>
     </div>
@@ -915,7 +1119,7 @@
                     <source src="message in the music (broken beat).wav" type="audio/wav">
                     Your browser does not support the audio element.
                 </audio>
-            </div>
+                </div>
             
             <div class="audio-player">
                 <div class="audio-title">No Limit (Soldier) - Abstract Beat - 2023</div>
