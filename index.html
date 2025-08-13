@@ -141,7 +141,7 @@
         .icon-image {
             width: 100%;
             height: auto;
-            border-radius: 2px;
+            border-radius: 0 !important;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
             transition: transform 0.2s ease;
             min-height: 44px;
@@ -335,6 +335,40 @@
 
         .radio-3d:hover {
             transform: rotateX(-20deg) rotateY(50deg) scale(0.95);
+        }
+
+        .radio-globe {
+            position: absolute;
+            left: 50px;
+            top: 15px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #0000cd;
+            overflow: hidden;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+
+        .radio-globe::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 3px;
+            width: 4px;
+            height: 3px;
+            background: #008000;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+
+        .radio-globe::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            right: 3px;
+            width: 3px;
+            height: 4px;
+            background: #008000;
+            border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
         }
 
         .center-question {
@@ -924,6 +958,10 @@
         .portfolio-link:hover {
             background: #2980b9;
         }
+
+        .desktop-icon[data-target="radio"] .icon-image {
+            background: white !important;
+        }
     </style>
 </head>
 <body>
@@ -964,7 +1002,7 @@
          data-type="link" 
          data-target="radio"
          style="left: 18%; top: 43%; width: 120px;">
-        <div class="icon-image" style="width: 100px; height: 60px; border-radius: 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); position: relative;">
+        <div class="icon-image" style="width: 100px; height: 80px; border-radius: 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); position: relative;">
             <div class="radio-3d">
                 <div class="radio-cube">
                     <div class="radio-face radio-front">
@@ -988,6 +1026,7 @@
                                 <div class="radio-knob"></div>
                             </div>
                             <div class="radio-antenna"></div>
+                            <div class="radio-globe"></div>
                         </div>
                     </div>
                     <div class="radio-face radio-back"></div>
