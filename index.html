@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,76 +165,6 @@
             word-wrap: break-word;
         }
 
-        .center-question {
-            position: absolute;
-            left: 50%; /* Moved further right to avoid "LISTEN" icon */
-            top: 55%; /* Position below the logo */
-            z-index: 5;
-            text-align: center;
-        }
-
-        .question-mark {
-            font-size: 140px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            user-select: none;
-            
-            background: linear-gradient(145deg, #d3d3d3, #8a8a8a, #4a4a4a); /* Stronger metallic gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            
-            text-shadow: 
-                3px 3px 6px #333, /* Deeper bevel */
-                -3px -3px 6px #bbb, /* Emboss effect */
-                0 0 15px #888, /* Inner shine */
-                0 0 30px #555; /* Outer metallic glow */
-            
-            transform: perspective(600px) rotateX(20deg); /* Enhanced 3D effect */
-            position: relative;
-        }
-
-        .question-mark::before {
-            content: "?";
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.9) 25%, rgba(255,255,255,0.5) 50%, transparent 75%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shine 3s ease-in-out infinite;
-        }
-
-        @keyframes shine {
-            0%, 100% { 
-                background-position: -100% 0; 
-                opacity: 0;
-            }
-            50% { 
-                background-position: 100% 0; 
-                opacity: 1;
-            }
-        }
-
-        .question-mark:hover {
-            transform: perspective(600px) rotateX(25deg) rotateY(10deg) scale(1.1);
-            text-shadow: 
-                4px 4px 8px #333,
-                -4px -4px 8px #bbb,
-                0 0 20px #888,
-                0 0 40px #555;
-        }
-
-        .question-subtitle {
-            margin-top: 15px;
-            font-size: 14px;
-            color: #7f8c8d;
-            font-weight: 400;
-            opacity: 0.8;
-        }
-
         .content-modal {
             position: fixed;
             top: 0;
@@ -379,13 +310,6 @@
                 max-width: 80px;
             }
             
-            .question-mark {
-                font-size: 120px;
-            }
-            
-            .question-subtitle {
-                font-size: 12px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -397,14 +321,6 @@
             .icon-label {
                 font-size: 9px;
                 max-width: 70px;
-            }
-            
-            .question-mark {
-                font-size: 100px;
-            }
-            
-            .question-subtitle {
-                font-size: 11px;
             }
             
             .modal-window {
@@ -961,9 +877,12 @@
         <span class="icon-label">discography</span>
     </div>
 
-    <div class="center-question">
-        <div class="question-mark">?</div>
-        <div class="question-subtitle">Click to explore</div>
+    <div class="desktop-icon" 
+         data-type="image" 
+         data-target="photo-gallery"
+         style="left: 70%; top: 40%; width: 80px;">
+        <div class="icon-image" style="width: 64px; height: 64px; background-image: url('blurBen-close.jpg'); background-size: cover; background-position: center; border-radius: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);"></div>
+        <span class="icon-label">photo-gallery</span>
     </div>
 
     <div id="about-modal" class="content-modal" style="display: none;">
@@ -1137,7 +1056,8 @@
                     openEditPhotoModal();
                 } else if (target === 'ben-photo') {
                     openBenPhotoModal();
-                
+                } else if (target === 'photo-gallery') {
+                    openPhotoGalleryModal();
                 } else if (target === 'music') {
                     // Open music page
                     openMusicPage();
@@ -1159,47 +1079,98 @@
         // Studio photo modal function
         function openStudioPhotoModal() {
             const modal = document.getElementById('image-modal');
-            const modalImage = document.getElementById('modal-image');
-            
+            const content = document.querySelector('.image-modal-content');
+            content.innerHTML = '';
+            const modalImage = document.createElement('img');
+            modalImage.id = 'modal-image';
             modalImage.src = 'inThaSTu.jpg';
             modalImage.alt = 'In The Studio';
+            content.appendChild(modalImage);
             modal.style.display = 'flex';
         }
 
         // Logo photo modal function
         function openLogoPhotoModal() {
             const modal = document.getElementById('image-modal');
-            const modalImage = document.getElementById('modal-image');
-            
+            const content = document.querySelector('.image-modal-content');
+            content.innerHTML = '';
+            const modalImage = document.createElement('img');
+            modalImage.id = 'modal-image';
             modalImage.src = 'NAUTEVOLCC-14.jpg';
             modalImage.alt = 'Logo';
+            content.appendChild(modalImage);
             modal.style.display = 'flex';
         }
 
         function openNicPhotoModal() {
             const modal = document.getElementById('image-modal');
-            const modalImage = document.getElementById('modal-image');
-            
+            const content = document.querySelector('.image-modal-content');
+            content.innerHTML = '';
+            const modalImage = document.createElement('img');
+            modalImage.id = 'modal-image';
             modalImage.src = 'NAUTEVOLCC-18.jpg';
             modalImage.alt = 'Nic';
+            content.appendChild(modalImage);
             modal.style.display = 'flex';
         }
 
         function openBenPhotoModal() {
             const modal = document.getElementById('image-modal');
-            const modalImage = document.getElementById('modal-image');
-
+            const content = document.querySelector('.image-modal-content');
+            content.innerHTML = '';
+            const modalImage = document.createElement('img');
+            modalImage.id = 'modal-image';
             modalImage.src = 'GoldenHourBen-blur-3.jpg';
             modalImage.alt = 'Ben';
+            content.appendChild(modalImage);
             modal.style.display = 'flex';
         } 
 
         function openEditPhotoModal() {
             const modal = document.getElementById('image-modal');
-            const modalImage = document.getElementById('modal-image');
-
+            const content = document.querySelector('.image-modal-content');
+            content.innerHTML = '';
+            const modalImage = document.createElement('img');
+            modalImage.id = 'modal-image';
             modalImage.src = 'NAUTEVOLCC-17.jpg';
             modalImage.alt = 'Edit';
+            content.appendChild(modalImage);
+            modal.style.display = 'flex';
+        }
+
+        function openPhotoGalleryModal() {
+            const modal = document.getElementById('image-modal');
+            const content = document.querySelector('.image-modal-content');
+            content.innerHTML = '';
+            const gallery = document.createElement('div');
+            gallery.style.display = 'flex';
+            gallery.style.overflowX = 'auto';
+            gallery.style.overflowY = 'hidden';
+            gallery.style.width = '100%';
+            gallery.style.height = '100%';
+            gallery.style.scrollSnapType = 'x mandatory';
+            gallery.style.webkitOverflowScrolling = 'touch';
+            const images = ['blurBen-close.jpg', 'blurBen-car.jpg', 'paintingFrom21.jpg', 'studioPic.jpg', 'benOnSub.jpg', 'meWaving.jpg'];
+            images.forEach(src => {
+                const wrapper = document.createElement('div');
+                wrapper.style.flex = '0 0 100%';
+                wrapper.style.display = 'flex';
+                wrapper.style.justifyContent = 'center';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.scrollSnapAlign = 'center';
+                const img = document.createElement('img');
+                img.src = src;
+                img.style.maxWidth = '100%';
+                img.style.maxHeight = '70vh';
+                img.style.width = 'auto';
+                img.style.height = 'auto';
+                img.style.objectFit = 'contain';
+                img.style.borderRadius = '6px';
+                img.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+                wrapper.appendChild(img);
+                gallery.appendChild(wrapper);
+            });
+            content.appendChild(gallery);
             modal.style.display = 'flex';
         }
 
@@ -1320,19 +1291,6 @@
             if (e.target === this) {
                 hideComingSoon();
             }
-        });
-
-        // Question mark interaction
-        document.querySelector('.question-mark').addEventListener('click', function() {
-            // Animate all icons
-            document.querySelectorAll('.desktop-icon').forEach((icon, index) => {
-                setTimeout(() => {
-                    icon.style.transform = 'scale(1.1) rotate(5deg)';
-                    setTimeout(() => {
-                        icon.style.transform = '';
-                    }, 200);
-                }, index * 50);
-            });
         });
 
         // Keyboard shortcuts
