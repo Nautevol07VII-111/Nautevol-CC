@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -332,6 +331,31 @@
             .image-modal-window {
                 max-width: 95vw;
                 max-height: 85vh;
+            }
+        }
+
+        @media (max-width: 375px) { /* Targeting iPhone screens */
+            body {
+                font-size: 14px;
+            }
+            .desktop-icon {
+                width: 60px !important;
+                padding: 4px;
+                transform: scale(0.8);
+                transform-origin: top left;
+            }
+            .icon-image {
+                min-height: 38px;
+                min-width: 38px;
+            }
+            .icon-label {
+                font-size: 8px;
+                max-width: 60px;
+                margin-top: 3px;
+            }
+            .modal-window, .image-modal-window {
+                transform: scale(0.9);
+                transform-origin: top center;
             }
         }
 
@@ -1304,6 +1328,33 @@
                 hideComingSoon();
             }
         });
+
+        // Dynamic scaling for mobile
+        function adjustLayoutForMobile() {
+            const width = window.innerWidth;
+            if (width <= 375) {
+                const scale = width / 375; // Base scale on iPhone width
+                document.querySelectorAll('.desktop-icon').forEach(icon => {
+                    icon.style.transform = `scale(${scale})`;
+                    icon.style.transformOrigin = 'top left';
+                });
+                document.querySelectorAll('.modal-window, .image-modal-window').forEach(modal => {
+                    modal.style.transform = `scale(${scale})`;
+                    modal.style.transformOrigin = 'top center';
+                });
+            } else {
+                document.querySelectorAll('.desktop-icon').forEach(icon => {
+                    icon.style.transform = '';
+                });
+                document.querySelectorAll('.modal-window, .image-modal-window').forEach(modal => {
+                    modal.style.transform = '';
+                });
+            }
+        }
+
+        // Adjust layout on load and resize
+        window.addEventListener('load', adjustLayoutForMobile);
+        window.addEventListener('resize', adjustLayoutForMobile);
     </script>
 </body>
 </html>
