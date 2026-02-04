@@ -14,16 +14,72 @@
 
         body {
             font-family: 'Space Mono', monospace;
-            background: url('actualPoolFinal.JPG') center center;
-            background-size: cover;
-            background-repeat: no-repeat;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
             cursor: default;
             user-select: none;
         }
 
+        /* ═══════════════════════════════════════════════════════════════
+           DUAL POOL FRAME BACKGROUND - Left: poolFrameTwo, Right: poolFrameOne
+           Clean 50/50 split with no overlap
+           ═══════════════════════════════════════════════════════════════ */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .background-left,
+        .background-right {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .background-left {
+            left: 0;
+            background-image: url('poolFrameTwo.JPG');
+            background-position: center right; /* Align to the seam */
+        }
+
+        .background-right {
+            right: 0;
+            background-image: url('poolFrameOne.JPG');
+            background-position: center left; /* Align to the seam */
+        }
+
+        /* Mobile: stack vertically */
+        @media (max-width: 768px) {
+            .background-left,
+            .background-right {
+                width: 100%;
+                height: 50%;
+            }
+            
+            .background-left {
+                top: 0;
+                left: 0;
+                background-position: center bottom;
+            }
+            
+            .background-right {
+                top: 50%;
+                right: 0;
+                background-position: center top;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           iPhone Scroll Optimization
+           ═══════════════════════════════════════════════════════════════ */
         @media (max-width: 768px) {
             body {
                 overflow: auto;
@@ -180,8 +236,8 @@
         .modal-window {
             background: #2c3e50;
             border-radius: 8px;
-            min-width: 500px;
-            max-width: 70%;
+            min-width: 300px;
+            max-width: 90%;
             max-height: 80%;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -209,8 +265,8 @@
             font-size: 20px;
             cursor: pointer;
             padding: 0;
-            width: 25px;
-            height: 25px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -227,6 +283,9 @@
             color: #ecf0f1;
             font-size: 13px;
             line-height: 1.6;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            max-height: 60vh;
         }
 
         .terminal-output {
@@ -286,6 +345,8 @@
             background: #2c3e50;
             flex: 1;
             min-height: 0;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         #modal-image {
@@ -334,15 +395,13 @@
             }
         }
 
-        @media (max-width: 375px) { /* Targeting iPhone screens */
+        @media (max-width: 375px) {
             body {
                 font-size: 14px;
             }
             .desktop-icon {
-                width: 60px !important;
+                width: 65px !important;
                 padding: 4px;
-                transform: scale(0.8);
-                transform-origin: top left;
             }
             .icon-image {
                 min-height: 38px;
@@ -350,12 +409,39 @@
             }
             .icon-label {
                 font-size: 8px;
-                max-width: 60px;
+                max-width: 65px;
                 margin-top: 3px;
             }
-            .modal-window, .image-modal-window {
-                transform: scale(0.9);
-                transform-origin: top center;
+        }
+
+        /* Safe area for notched iPhones */
+        @supports (padding-top: env(safe-area-inset-top)) {
+            body {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
+            }
+        }
+
+        /* Touch optimization */
+        @media (hover: none) and (pointer: coarse) {
+            .desktop-icon {
+                min-width: 60px;
+                min-height: 60px;
+            }
+
+            .modal-close {
+                min-width: 48px;
+                min-height: 48px;
+            }
+
+            .desktop-icon[data-type="image"]:hover::before,
+            .desktop-icon[data-type="audio"]:hover::before,
+            .desktop-icon[data-target="about"]:hover::before,
+            .desktop-icon[data-target="contact"]:hover::before,
+            .desktop-icon[data-target="info"]:hover::before {
+                display: none;
             }
         }
 
@@ -365,9 +451,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('actualPoolFinal.JPG') center center;
-            background-size: cover;
-            background-repeat: no-repeat;
             z-index: 2000;
             display: none;
             flex-direction: column;
@@ -376,7 +459,43 @@
             padding: 20px;
         }
 
+        /* Music page background */
+        #music-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            z-index: -1;
+        }
+
+        #music-page .bg-left,
+        #music-page .bg-right {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #music-page .bg-left {
+            left: 0;
+            background-image: url('poolFrameTwo.JPG');
+            background-position: center right;
+        }
+
+        #music-page .bg-right {
+            right: 0;
+            background-image: url('poolFrameOne.JPG');
+            background-position: center left;
+        }
+
         .music-container {
+            position: relative;
+            z-index: 1;
             background: rgba(44, 62, 80, 0.95);
             border-radius: 12px;
             padding: 30px;
@@ -411,8 +530,8 @@
             font-size: 24px;
             cursor: pointer;
             padding: 0;
-            width: 30px;
-            height: 30px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -469,9 +588,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('actualPoolFinal.JPG') center center;
-            background-size: cover;
-            background-repeat: no-repeat;
             z-index: 2000;
             display: none;
             flex-direction: column;
@@ -480,7 +596,31 @@
             padding: 20px;
         }
 
+        #contact-page .bg-left,
+        #contact-page .bg-right {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #contact-page .bg-left {
+            left: 0;
+            background-image: url('poolFrameTwo.JPG');
+            background-position: center right;
+        }
+
+        #contact-page .bg-right {
+            right: 0;
+            background-image: url('poolFrameOne.JPG');
+            background-position: center left;
+        }
+
         .contact-container {
+            position: relative;
+            z-index: 1;
             background: rgba(44, 62, 80, 0.95);
             border-radius: 12px;
             padding: 30px;
@@ -519,6 +659,7 @@
             color: #ecf0f1;
             font-family: 'Space Mono', monospace;
             font-size: 13px;
+            min-height: 44px;
         }
 
         .form-group input:focus,
@@ -569,6 +710,7 @@
             cursor: pointer;
             transition: background 0.2s ease;
             width: 100%;
+            min-height: 48px;
         }
 
         .submit-btn:hover {
@@ -618,6 +760,7 @@
             cursor: pointer;
             font-family: 'Space Mono', monospace;
             font-size: 12px;
+            min-height: 44px;
         }
 
         #info-page {
@@ -626,9 +769,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('actualPoolFinal.JPG') center center;
-            background-size: cover;
-            background-repeat: no-repeat;
             z-index: 2000;
             display: none;
             flex-direction: column;
@@ -637,7 +777,31 @@
             padding: 20px;
         }
 
+        #info-page .bg-left,
+        #info-page .bg-right {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #info-page .bg-left {
+            left: 0;
+            background-image: url('poolFrameTwo.JPG');
+            background-position: center right;
+        }
+
+        #info-page .bg-right {
+            right: 0;
+            background-image: url('poolFrameOne.JPG');
+            background-position: center left;
+        }
+
         .info-container {
+            position: relative;
+            z-index: 1;
             background: rgba(44, 62, 80, 0.95);
             border-radius: 12px;
             padding: 30px;
@@ -670,6 +834,7 @@
             font-weight: 600;
             transition: background 0.2s ease;
             margin: 10px 0;
+            min-height: 48px;
         }
 
         .portfolio-link:hover {
@@ -792,7 +957,14 @@
     </style>
 </head>
 <body>
-    
+    <!-- ═══════════════════════════════════════════════════════════════
+         DUAL BACKGROUND - poolFrameTwo on left, poolFrameOne on right
+         ═══════════════════════════════════════════════════════════════ -->
+    <div class="background-container">
+        <div class="background-left"></div>
+        <div class="background-right"></div>
+    </div>
+
     <div class="desktop-icon" 
          data-type="folder" 
          data-target="about"
@@ -951,6 +1123,8 @@
     </div>
 
     <div id="music-page">
+        <div class="bg-left"></div>
+        <div class="bg-right"></div>
         <div class="music-container">
             <div class="music-header">
                 <span class="music-title">Audio Samples</span>
@@ -987,6 +1161,8 @@
     </div>
 
     <div id="contact-page">
+        <div class="bg-left"></div>
+        <div class="bg-right"></div>
         <div class="contact-container">
             <div class="music-header">
                 <span class="music-title">Contact</span>
@@ -1035,6 +1211,8 @@
     </div>
 
     <div id="info-page">
+        <div class="bg-left"></div>
+        <div class="bg-right"></div>
         <div class="info-container">
             <div class="music-header">
                 <span class="music-title">More Info</span>
@@ -1291,21 +1469,21 @@
 
         // Close music page when clicking outside container
         document.getElementById('music-page').addEventListener('click', function(e) {
-            if (e.target === this) {
+            if (e.target === this || e.target.classList.contains('bg-left') || e.target.classList.contains('bg-right')) {
                 closeMusicPage();
             }
         });
 
         // Close contact page when clicking outside container
         document.getElementById('contact-page').addEventListener('click', function(e) {
-            if (e.target === this) {
+            if (e.target === this || e.target.classList.contains('bg-left') || e.target.classList.contains('bg-right')) {
                 closeContactPage();
             }
         });
 
         // Close info page when clicking outside container
         document.getElementById('info-page').addEventListener('click', function(e) {
-            if (e.target === this) {
+            if (e.target === this || e.target.classList.contains('bg-left') || e.target.classList.contains('bg-right')) {
                 closeInfoPage();
             }
         });
@@ -1328,33 +1506,6 @@
                 hideComingSoon();
             }
         });
-
-        // Dynamic scaling for mobile
-        function adjustLayoutForMobile() {
-            const width = window.innerWidth;
-            if (width <= 375) {
-                const scale = width / 375; // Base scale on iPhone width
-                document.querySelectorAll('.desktop-icon').forEach(icon => {
-                    icon.style.transform = `scale(${scale})`;
-                    icon.style.transformOrigin = 'top left';
-                });
-                document.querySelectorAll('.modal-window, .image-modal-window').forEach(modal => {
-                    modal.style.transform = `scale(${scale})`;
-                    modal.style.transformOrigin = 'top center';
-                });
-            } else {
-                document.querySelectorAll('.desktop-icon').forEach(icon => {
-                    icon.style.transform = '';
-                });
-                document.querySelectorAll('.modal-window, .image-modal-window').forEach(modal => {
-                    modal.style.transform = '';
-                });
-            }
-        }
-
-        // Adjust layout on load and resize
-        window.addEventListener('load', adjustLayoutForMobile);
-        window.addEventListener('resize', adjustLayoutForMobile);
     </script>
 </body>
 </html>
