@@ -841,119 +841,7 @@
             background: #2980b9;
         }
 
-        .desktop-icon[data-target="radio"] .icon-image {
-            background: white !important;
-        }
 
-        /* Redesigned Radio Styles */
-        .radio-3d {
-            width: 120px;
-            height: 60px;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.5s ease;
-            transform: rotateX(-15deg) rotateY(30deg);
-            margin: 5px auto;
-            animation: rotateRadio 10s infinite linear;
-        }
-
-        @keyframes rotateRadio {
-            0% { transform: rotateX(-15deg) rotateY(30deg); }
-            100% { transform: rotateX(-15deg) rotateY(390deg); }
-        }
-
-        .radio-body {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), inset 0 0 10px #1a252f;
-            overflow: hidden;
-        }
-
-        .radio-screen {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 80px;
-            height: 40px;
-            background: #000;
-            border: 2px solid #3498db;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .radio-screen::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #27ae60, #2ecc71, #27ae60);
-            animation: scan 2s infinite;
-            opacity: 0.3;
-        }
-
-        @keyframes scan {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .radio-controls {
-            position: absolute;
-            right: 10px;
-            top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .radio-knob {
-            width: 15px;
-            height: 15px;
-            background: radial-gradient(circle, #e74c3c, #c0392b);
-            border: 2px solid #fff;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5), inset 0 0 5px #fff;
-            transition: transform 0.3s ease;
-        }
-
-        .radio-knob:hover {
-            transform: scale(1.1) rotate(15deg);
-        }
-
-        .radio-led {
-            width: 8px;
-            height: 8px;
-            background: #2ecc71;
-            border-radius: 50%;
-            box-shadow: 0 0 5px #2ecc71, 0 0 10px #2ecc71;
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        .radio-antenna {
-            position: absolute;
-            right: 5px;
-            top: -15px;
-            width: 2px;
-            height: 25px;
-            background: linear-gradient(to top, #666, #ddd);
-            border-radius: 1px;
-            transform-origin: bottom;
-            transform: rotate(-20deg);
-            box-shadow: 0 0 3px #fff;
-        }
-
-        .radio-3d:hover {
-            transform: rotateX(-20deg) rotateY(35deg) scale(1.05);
-        }
     </style>
 </head>
 <body>
@@ -997,23 +885,12 @@
         <span class="icon-label">press</span>
     </div>
 
+    <!-- DISCO BALL ICON - Simple Emoji -->
     <div class="desktop-icon" 
          data-type="link" 
          data-target="radio"
-         style="left: 18%; top: 43%; width: 120px;">
-        <div class="icon-image" style="width: 120px; height: 60px; border-radius: 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); position: relative;">
-            <div class="radio-3d">
-                <div class="radio-body">
-                    <div class="radio-screen"></div>
-                    <div class="radio-controls">
-                        <div class="radio-knob"></div>
-                        <div class="radio-knob"></div>
-                        <div class="radio-led"></div>
-                    </div>
-                    <div class="radio-antenna"></div> 
-                </div>
-            </div>
-        </div>
+         style="left: 18%; top: 43%; width: 100px;">
+        <div style="font-size: 64px; line-height: 1;">🪩</div>
         <span class="icon-label">HOTEL TERRA RADIO</span>
     </div>
 
@@ -1029,7 +906,7 @@
          data-type="image" 
          data-target="benn-photo"
          style="left: 35%; top: 20%; width: 75px;">
-        <div class="icon-image" style="width: 72px; height: 72px; background-image: url('wholeCrew.jpg'); background-size: cover; background-position: center; border-radius: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);"></div>
+        <div class="icon-image" style="width: 72px; height: 72px; background-image: url('wholeCrew2.jpg'); background-size: cover; background-position: center; border-radius: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);"></div>
         <span class="icon-label">📷.jpg</span>
     </div>
 
@@ -1310,7 +1187,7 @@
             content.innerHTML = '';
             const modalImage = document.createElement('img');
             modalImage.id = 'modal-image';
-            modalImage.src = 'wholeCrew.jpg';
+            modalImage.src = 'wholeCrew2.jpg';
             modalImage.alt = 'Benn';
             content.appendChild(modalImage);
             modal.style.display = 'flex';
